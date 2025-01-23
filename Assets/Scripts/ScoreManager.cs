@@ -21,6 +21,6 @@ public class ScoreManager : MonoBehaviour
     
     private void UpdateScore()
     {
-        scoreText.text = "Score: " + score;
+        scoreText.text = "Fish Caught: " + score;
     }
 }

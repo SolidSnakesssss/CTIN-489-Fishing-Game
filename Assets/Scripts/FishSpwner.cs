@@ -11,7 +11,7 @@ public class FishSpwner : MonoBehaviour
 
     //private float Spawnrate = 1f;
 
-    [SerializeField] private GameObject fishPrefab;
+    [SerializeField] private GameObject[] fishPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +28,10 @@ public class FishSpwner : MonoBehaviour
 
             float randY = Random.Range(110f, 270f);
 
+            int randSpawn = Random.Range(0, fishPrefab.Length);
             Vector3 currentPos = new Vector3(transform.position.x, randY, transform.position.z);
-
-            Instantiate(fishPrefab, currentPos, Quaternion.identity);
+            
+            Instantiate(fishPrefab[randSpawn], currentPos, Quaternion.identity);
             
             
         }
