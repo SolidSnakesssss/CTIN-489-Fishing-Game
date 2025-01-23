@@ -8,10 +8,13 @@ public class FishingRod : MonoBehaviour
     public float ySpeed;
     public float xSpeed;
     private Vector2 moveDirection;
+    private bool audioPlaying = false;
 
     public Rigidbody2D rb;
     public Transform boatTransform;
     public GameObject hook;
+    public AudioSource ReelSfx;
+    
 
     // Update is called once per frame
     void Update()
@@ -21,11 +24,28 @@ public class FishingRod : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
         float oldY = hook.transform.position.y;
         
-        float oldYSpeed = ySpeed;
+        //float oldYSpeed = ySpeed;
+        
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) && !audioPlaying)
+        {
+            audioPlaying = true;
+            ReelSfx.Play();
+        }
+        
+        else if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+        {
+            audioPlaying = false;
+            ReelSfx.Stop();
+        }
 
+        else
+        {
+            audioPlaying = false;
+        }
+        
         if (oldY >= 291)
         {
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKey(KeyCode.S))
             {
                 ySpeed = 150;
             }
@@ -38,7 +58,7 @@ public class FishingRod : MonoBehaviour
         
         else if (oldY <= 123)
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKey(KeyCode.W))
             {
                 ySpeed = 150;
             }
@@ -48,7 +68,6 @@ public class FishingRod : MonoBehaviour
                 ySpeed = 0;
             }
         }
-        
         moveDirection = new Vector2(moveX, moveY).normalized;
     }
 

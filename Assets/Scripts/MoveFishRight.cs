@@ -35,7 +35,7 @@ public class MoveFishRight : MonoBehaviour
             Destroy(gameObject);
         }
         
-        else if (collision.gameObject.name.StartsWith("Edge Right"))
+        else if (collision.gameObject.name.StartsWith("Boundary1"))
         {
             Destroy(gameObject);
         }

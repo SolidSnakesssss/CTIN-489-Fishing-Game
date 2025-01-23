@@ -9,7 +9,7 @@ public class FishSpwner : MonoBehaviour
 
     public float direction;
 
-    private float Spawnrate = 1f;
+    //private float Spawnrate = 1f;
 
     [SerializeField] private GameObject fishPrefab;
     // Start is called before the first frame update
@@ -30,7 +30,7 @@ public class FishSpwner : MonoBehaviour
 
             Vector3 currentPos = new Vector3(transform.position.x, randY, transform.position.z);
 
-            var newFish = Instantiate(fishPrefab, currentPos, Quaternion.identity);
+            Instantiate(fishPrefab, currentPos, Quaternion.identity);
             
             
         }
