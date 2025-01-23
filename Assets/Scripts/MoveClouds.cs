@@ -13,7 +13,7 @@ public class MoveClouds : MonoBehaviour
     {
         //rb.GetComponent<Rigidbody2D>();
 
-        float speed = Random.Range(100f, 300f);
+        float speed = Random.Range(50f, 300f);
 
         rb.velocity = new Vector2(speed, 0);
     }

@@ -22,5 +22,13 @@ public class IncreaseScore : MonoBehaviour
             _scoreManager.IncreaseScore();
             splashSFX.Play();
         }
+        
+        
+        else if (collision.gameObject.name.StartsWith(("LeftFish")))
+        {
+            _scoreManager.IncreaseScore();
+            splashSFX.Play();
+        }
+        
     }
 }

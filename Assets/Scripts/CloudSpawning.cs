@@ -23,10 +23,11 @@ public class CloudSpawning : MonoBehaviour
 
             int rand = Random.Range(0, clouds.Length);
             int randPos = Random.Range(480, 595);
+            //int randZ = Random.Range(-3, -10);
 
             //GameObject cloud = clouds[rand];
 
-            Vector3 cloudPos = new Vector3(transform.position.x, randPos, transform.position.z);
+            Vector3 cloudPos = new Vector3(transform.position.x, randPos, -3);
 
             Instantiate(clouds[rand], cloudPos, Quaternion.identity);
         }
