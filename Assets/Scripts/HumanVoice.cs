@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HumanVoice : MonoBehaviour
 {
-    private AudioSource audioSource;
+    public AudioSource audioSource;
 
     private AudioClip voice1;
     private AudioClip voice2;
@@ -23,7 +23,8 @@ public class HumanVoice : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSource.GetComponent<AudioSource>();
+        //audioSource.GetComponent<AudioSource>();
+        audioSource.volume = 0.317f;
 
         voice1 = Resources.Load<AudioClip>("My Recordings/Give me an A Pls");
         voice2 = Resources.Load<AudioClip>("My Recordings/Good Feedback");
@@ -80,6 +81,12 @@ public class HumanVoice : MonoBehaviour
                 {
                     audioSource.PlayOneShot(voice2);
                     playedThanks = true;
+                    break;
+                }
+
+                case 2:
+                {
+                    audioSource.PlayOneShot(voice3);
                     break;
                 }
                 
